@@ -1,2 +1,1 @@
-# paginaJovenes40
-Sitio web de la juventud del partido nacional lista 40 hecha en React
+this is a readme file

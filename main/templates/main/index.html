@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock custom_styles %}
+
+{% block content %}
+
+    <!------------- MAIN ----------->
+    <main>
+        <!-- Titulo del sitio -->
+        <section class="titulo-sitio">
+            <div class="hero-background">
+                <h3> -- Partido Nacional -- </h3>
+                <h1>Jovenes 40 </h1>
+                <button class="btn" id="explorar">Explorar</button>
+            </div>
+        </section>
+        <!-- /Titulo del sitio -->
+        
+        <!-- Blog Carousel -->
+        <section>
+            <div class="blog">
+                <div class="container">
+
+                    <div class="splide">
+                        <div class="splide__track blog-post">
+
+                            <ul class="splide__list">
+                                <!-- Slider items -->
+                                <li class="splide__slide blog-content">
+                                    <img src="{% static 'assets/Blog-post/blog1.png' %}" alt="" srcset="">
+                                    <div class="titulo-blog">
+                                        <h3>Titulo del blog</h3>
+                                        <button class="btn btn-blog">Leer Mas</button>
+                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
+                                    </div>
+                                </li>
+                                
+                                <li class="splide__slide blog-content">
+                                    <img src="{% static 'assets/Blog-post/blog2.png' %}" alt="" srcset="">
+                                    <div class="titulo-blog">
+                                        <h3>Titulo del blog</h3>
+                                        <button class="btn btn-blog">Leer Mas</button>
+                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
+                                    </div>
+                                </li>
+                                
+                                <li class="splide__slide blog-content">
+                                    <img src="{% static 'assets/Blog-post/blog3.png' %}" alt="" srcset="">
+                                    <div class="titulo-blog">
+                                        <h3>Titulo del blog</h3>
+                                        <button class="btn btn-blog">Leer Mas</button>
+                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide blog-content">
+                                    <img src="{% static 'assets/Blog-post/blog4.png' %}" alt="" srcset="">
+                                    <div class="titulo-blog">
+                                        <h3>Titulo del blog</h3>
+                                        <button class="btn btn-blog">Leer Mas</button>
+                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide blog-content">
+                                    <img src="{% static 'assets/Blog-post/blog1.png' %}" alt="" srcset="">
+                                    <div class="titulo-blog">
+                                        <h3>Titulo del blog</h3>
+                                        <button class="btn btn-blog">Leer Mas</button>
+                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide blog-content">
+                                    <img src="{% static 'assets/Blog-post/blog2.png' %}" alt="" srcset="">
+                                    <div class="titulo-blog">
+                                        <h3>Titulo del blog</h3>
+                                        <button class="btn btn-blog">Leer Mas</button>
+                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Blog Carousel -->
+
+        <!-- CONTENIDO DEL SITIO -->
+        <section class="container" id="principal">
+            <div class="contenido-sitio">
+                <div class="posts">
+
+                    {% for noticia in noticias %}
+                        <div class="post-contenido">
+                            <div class="post-imagen">
+                                <div>
+                                    <img src="{{ noticia.imagen.url }}" class="img" alt="">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;{{noticia.autor|capfirst}}&nbsp;&nbsp;</span>
+                                    <span><i class="fas fa-calendar-alt text-gris"></i></span>
+                                    <span>&nbsp;&nbsp;{{ noticia.fecha }}</span>
+                                </div>
+                            </div>
+
+                            <div class="titulo-post">
+                                <a href="">{{noticia.titulo}}</a>
+                                <p>{{ noticia.descripcion }}</p>
+                                <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="post-contenido">
+                        <div class="post-imagen">
+                            <div>
+                                <img src="{% static 'assets/Blog-post/blog1.png' %}" class="img" alt="">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;Nicolas&nbsp;&nbsp;</span>
+                                <span><i class="fas fa-calendar-alt text-gris"></i></span>
+                                <span>&nbsp;&nbsp;publicado el 7 de febrero de 2021</span>
+                            </div>
+                        </div>
+
+                        <div class="titulo-post">
+                            <a href="">Este es un titulo de prueba</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et pariatur itaque debitis, consequuntur ipsam corporis facere repudiandae rerum temporibus quasi quo quod, recusandae fugiat doloremque molestias dolor neque non vitae!
+                            Et natus ex porro! Minus labore, aliquid distinctio incidunt quasi sed culpa sint harum fuga quos vitae praesentium velit reiciendis deserunt sapiente accusamus quisquam minima tempore dolore mollitia consequatur qui!</p>
+                            <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="post-contenido">
+                        <div class="post-imagen">
+                            <div>
+                                <img src="{% static 'assets/Blog-post/blog2.png' %}" class="img" alt="">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;Nicolas&nbsp;&nbsp;</span>
+                                <span><i class="fas fa-calendar-alt text-gris"></i></span>
+                                <span>&nbsp;&nbsp;publicado el 7 de febrero de 2021</span>
+                            </div>
+                        </div>
+
+                        <div class="titulo-post">
+                            <a href="">Este es un titulo de prueba</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et pariatur itaque debitis, consequuntur ipsam corporis facere repudiandae rerum temporibus quasi quo quod, recusandae fugiat doloremque molestias dolor neque non vitae!
+                            Et natus ex porro! Minus labore, aliquid distinctio incidunt quasi sed culpa sint harum fuga quos vitae praesentium velit reiciendis deserunt sapiente accusamus quisquam minima tempore dolore mollitia consequatur qui!</p>
+                            <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="post-contenido">
+                        <div class="post-imagen">
+                            <div>
+                                <img src="{% static 'assets/Blog-post/blog3.png' %}" class="img" alt="">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;Nicolas&nbsp;&nbsp;</span>
+                                <span><i class="fas fa-calendar-alt text-gris"></i></span>
+                                <span>&nbsp;&nbsp;publicado el 7 de febrero de 2021</span>
+                            </div>
+                        </div>
+
+                        <div class="titulo-post">
+                            <a href="">Este es un titulo de prueba</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et pariatur itaque debitis, consequuntur ipsam corporis facere repudiandae rerum temporibus quasi quo quod, recusandae fugiat doloremque molestias dolor neque non vitae!
+                            Et natus ex porro! Minus labore, aliquid distinctio incidunt quasi sed culpa sint harum fuga quos vitae praesentium velit reiciendis deserunt sapiente accusamus quisquam minima tempore dolore mollitia consequatur qui!</p>
+                            <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="pagination flex-row">
+                        <a href="#"><i class="fas fa-chevron-left"></i></a>
+                        
+                        <a href="#" class="page">1</a>
+                        <a href="#" class="page">2</a>
+                        <a href="#" class="page">3</a>
+
+                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    
+                    <div class="comunicados">
+                        <h2>Fechas Importantes del mes de {{ mes.nombre }}</h2>
+                        <ul class="fechas-importantes">
+                            {% if verificador %}
+                                {% for fecha in fechas %}
+                                    <li class="lista-items"> {{fecha}} </li>
+                                {% endfor %}
+                            {% else %}
+                                <p>No existen fechas importantes para este mes</p>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    
+                    <div class="twitter">
+                        <div class="timeline">
+                            <a class="twitter-timeline" href="https://twitter.com/Jovenes40?ref_src=twsrc%5Etfw">Jovenes40 en Twitter</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                        
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <!-- /CONTENIDO DEL SITIO -->
+
+
+    </main>
+    <!------------- MAIN ----------->
+
+{% endblock content %}

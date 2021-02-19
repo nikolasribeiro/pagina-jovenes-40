@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock custom_styles %}
+
+{% block content %}
+
+	<!-- BLOG -->
+	<div class="contenedor-blog">
+
+        {% for blog in blogs %}
+            <div class="posteo">
+                <!-- inicio blogs -->
+                <div class="imagen-posteo">
+                    <div class="contenedor-background-imagen">
+                        <img src="{{ blog.imagen_blog }}" class="background-imagen">
+                    </div>
+                    <div class="detalles-publicacion">
+                        <a href="#" class="autor"><i class="fas fa-user"></i>{{ blog.autor|capfirst }}</a>
+                        <span class="date"><i class="fas fa-calendar-alt"></i>{{ blog.fecha_publicacion }}</span>
+                    </div>
+                </div>
+                <div class="post-data">
+                    <h1 class="titulo">{{ blog.titulo_blog }}</h1>
+                    <h2 class="subtitulo">{{ blog.subtitulo_blog }}</h2>
+                    <p class="descripcion">
+                        {{ blog.descripcion_breve }}
+                    </p>
+                    <div class="cta"><a href="{% url 'detail' blog.slug %}">Leer Mas &rarr;</a></div>
+                </div>
+                
+            </div>
+        {% endfor %}
+
+	</div>
+	<!-- BLOG -->
+{% endblock content %}

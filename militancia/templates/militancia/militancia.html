@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static 'css/militancia.css' %}">
+{% endblock custom_styles %}
+
+{% block content %}
+	<!-- Militancia -->
+	<section>
+		<!-- Formulario -->
+		<div class="contenedor-formulario">
+			<div class="registrarse">
+				<form class="formulario-registrarse" method="POST">
+					{% csrf_token %}
+					<h2 class="titulo">¡Comienza a Militar!</h2>
+					<p class="alerta">Todos los campos con * son obligatorios</p>
+                    
+                    {% for field in form %}
+					<div class="input-fields">
+						{{ field }}
+					</div>
+                    {% endfor %}
+
+					
+					
+					<input type="submit" value="Enviar" class="btn solid">
+					
+				</form>
+			</div>
+		</div>
+
+		<!-- Paneles derecha -->
+		<div class="contenedor-paneles-informacion">
+			<div class="panel panel-izquierdo">
+				<div class="contenido">
+					<h3>¿Te gustaria integrar el grupo de Jovenes40?</h3>
+					<p>
+						Si te interesa la politica, ¡esta es tu agrupacion!
+						Ingresa tus datos a continuacion y te estaremos contactando
+						a la brevedad.
+					</p>
+					<p>
+						La agrupacion de jovenes es una agrupacion politica voluntaria
+						perteneciente a la lista 40 del Partido Nacional. 
+						Los datos que proporciones a continuacion seran tomado unicamente
+						con fines de contacto.
+					</p>
+				</div>
+
+				<img src="{%static 'img/undraw_subscribe_vspl.svg' %}" class="imagen">
+			</div>
+		</div>
+	</section>
+	<!-- Militancia -->
+
+{% endblock content %}

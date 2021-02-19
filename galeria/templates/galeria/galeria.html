@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_styles %}
+    <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+{% endblock custom_styles %}
+
+{% block content %}
+    <!---------------- GALERIA ---------------->
+    {% for imagen in imagenes %}
+	<h3 class="titulo-galeria">{{ imagen.titulo_galeria }}</h3>
+	<div class="contenido">
+		
+		<div class="container-galeria w-3 h-2">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen1 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-3">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen2 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-2">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen3 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-4">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen4 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-3">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen5 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-2">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen6 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-2">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen7 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-6 h-2">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen8 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-3">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen9 }}">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-galeria w-3 h-3">
+			<div class="item-galeria">
+				<div class="imagenes">
+					<img src="{{ imagen.imagen10 }}">
+				</div>
+			</div>
+		</div>
+
+	</div>
+    {% endfor %}
+
+
+{% endblock content %}

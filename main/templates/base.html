@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jovenes40</title>
+
+	<!-- Estilos personalizados -->
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	{% block custom_styles %}
+	{% endblock custom_styles %}
+
+
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+	<!-- Google Fonts CDN -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Josefin+Sans:wght@300&family=Lexend+Deca&family=Livvic&family=Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+	
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+
+
+
+</head>
+<body>
+	<!---------------- Navbar ------------------>
+	<nav class="nav">
+		<div class="nav-menu flex-row">
+			<div class="nav-brand">
+				<a href="{% url 'home' %}" class="text-gris">
+					<!--
+					J<span>40</span>
+					-->
+					<img src="{% static 'img/logo.jpeg' %}" alt="">
+				</a>
+			</div>
+
+			<!-- Toggle  -->
+			<div class="toggle-collapse">
+				<div class="toggle-icons">
+					<i class="fas fa-bars"></i>
+				</div>
+			</div>
+
+			<div>
+				<ul class="nav-items">
+					<li class="nav-link"><a href="{% url 'home' %}"> Inicio </a></li>
+					<li class="nav-link"><a href="{% url 'galeria' %}"> Galeria </a></li>
+					<li class="nav-link"><a href="{% url 'blog' %}"> Blog </a></li>
+					<li class="nav-link"><a href="{% url 'militancia' %}"> Militancia </a></li>
+				</ul>
+			</div>
+
+			<div class="social text-gris">
+				<a href="https://www.facebook.com/Jov40" target="_blank"><i class="fab fa-facebook"></i></a>
+				<a href="https://www.instagram.com/jovenes40/" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://twitter.com/Jovenes40" target="_blank"><i class="fab fa-twitter"></i></a>
+			</div>
+
+		</div>
+	</nav>
+	<!---------------- /Navbar ----------------->
+
+    {% block content %}
+	
+    {% endblock content %}
+
+
+
+	<!----------------- Footer ------------------->
+	<footer class="footer">
+		<div class="container">
+
+			<div class="sobre-nosotros">
+				<h2>Sobre Nosotros</h2>
+				<img src="{% static 'img/img-footer.jpeg' %}" class="img-footer">
+			</div>
+			<div class="ubicacion">
+				<h2>Ubicacion</h2>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d578.438312346271!2d-56.188009353853055!3d-34.902905260415295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f80336fa1adcf%3A0x6c7b351344d2a030!2sCasa%20de%20los%20Lamas!5e0!3m2!1ses-419!2suy!4v1612807187982!5m2!1ses-419!2suy" width="600" height="390" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="mapa"></iframe>
+			</div>
+
+			<div class="sociales">
+				<h2>Redes Sociales</h2>
+				<div class="links">
+					<a href="https://www.facebook.com/Jov40" target="_blank" class="footer-link"><i class="fab fa-facebook"></i> Facebook</a>
+
+					<a href="https://www.instagram.com/jovenes40/" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a>
+
+					<a href="https://twitter.com/Jovenes40" class="footer-link"><i class="fab fa-twitter"></i>Twitter</a>
+
+				</div>
+			</div>
+		</div>
+		<p class="text-gris caption">&copy; Nicolas Ribeiro - Todos los Derechos Reservados <span id="actualYear"></span>  </p>
+	</footer>
+	<!----------------- /Footer ------------------>
+
+
+
+
+
+
+
+
+
+
+	<!-- Javascript -->
+	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+		document.addEventListener( 'DOMContentLoaded', function () {
+			new Splide( '.splide', {
+				type   : 'loop',
+				perPage: 3,
+				autoplay:true,
+				interval: 5000,
+				pauseOnHover:true
+			} ).mount();
+		});
+	</script>
+</body>
+</html>
