@@ -113,75 +113,11 @@
                             </div>
 
                             <div class="titulo-post">
-                                <a href="">{{noticia.titulo}}</a>
+                                <a href="{% url 'detalle-noticia' noticia.slug %}">{{noticia.titulo}}</a>
                                 <p>{{ noticia.descripcion }}</p>
-                                <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
                     {% endfor %}
-
-                    <div class="post-contenido">
-                        <div class="post-imagen">
-                            <div>
-                                <img src="{% static 'assets/Blog-post/blog1.png' %}" class="img" alt="">
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;Nicolas&nbsp;&nbsp;</span>
-                                <span><i class="fas fa-calendar-alt text-gris"></i></span>
-                                <span>&nbsp;&nbsp;publicado el 7 de febrero de 2021</span>
-                            </div>
-                        </div>
-
-                        <div class="titulo-post">
-                            <a href="">Este es un titulo de prueba</a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et pariatur itaque debitis, consequuntur ipsam corporis facere repudiandae rerum temporibus quasi quo quod, recusandae fugiat doloremque molestias dolor neque non vitae!
-                            Et natus ex porro! Minus labore, aliquid distinctio incidunt quasi sed culpa sint harum fuga quos vitae praesentium velit reiciendis deserunt sapiente accusamus quisquam minima tempore dolore mollitia consequatur qui!</p>
-                            <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="post-contenido">
-                        <div class="post-imagen">
-                            <div>
-                                <img src="{% static 'assets/Blog-post/blog2.png' %}" class="img" alt="">
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;Nicolas&nbsp;&nbsp;</span>
-                                <span><i class="fas fa-calendar-alt text-gris"></i></span>
-                                <span>&nbsp;&nbsp;publicado el 7 de febrero de 2021</span>
-                            </div>
-                        </div>
-
-                        <div class="titulo-post">
-                            <a href="">Este es un titulo de prueba</a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et pariatur itaque debitis, consequuntur ipsam corporis facere repudiandae rerum temporibus quasi quo quod, recusandae fugiat doloremque molestias dolor neque non vitae!
-                            Et natus ex porro! Minus labore, aliquid distinctio incidunt quasi sed culpa sint harum fuga quos vitae praesentium velit reiciendis deserunt sapiente accusamus quisquam minima tempore dolore mollitia consequatur qui!</p>
-                            <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="post-contenido">
-                        <div class="post-imagen">
-                            <div>
-                                <img src="{% static 'assets/Blog-post/blog3.png' %}" class="img" alt="">
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fas fa-user text-gris"></i>&nbsp;&nbsp;Nicolas&nbsp;&nbsp;</span>
-                                <span><i class="fas fa-calendar-alt text-gris"></i></span>
-                                <span>&nbsp;&nbsp;publicado el 7 de febrero de 2021</span>
-                            </div>
-                        </div>
-
-                        <div class="titulo-post">
-                            <a href="">Este es un titulo de prueba</a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et pariatur itaque debitis, consequuntur ipsam corporis facere repudiandae rerum temporibus quasi quo quod, recusandae fugiat doloremque molestias dolor neque non vitae!
-                            Et natus ex porro! Minus labore, aliquid distinctio incidunt quasi sed culpa sint harum fuga quos vitae praesentium velit reiciendis deserunt sapiente accusamus quisquam minima tempore dolore mollitia consequatur qui!</p>
-                            <button class="btn post-btn">Leer Mas &nbsp; <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                    <hr>
 
                     <div class="pagination flex-row">
                         <a href="#"><i class="fas fa-chevron-left"></i></a>

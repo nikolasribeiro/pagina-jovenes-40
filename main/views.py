@@ -34,3 +34,12 @@ def home(request):
     }
 
     return render(request, 'main/index.html', context)
+
+
+def detail_noticias(request, slug):
+    noticias_especificas = Noticias.objects.filter(slug=slug)
+    context={
+        'noticias_especificas':noticias_especificas
+    }
+
+    return render(request, 'main/detail-noticias.html', context)

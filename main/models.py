@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from autoslug import AutoSlugField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Noticias(models.Model):
@@ -9,12 +11,20 @@ class Noticias(models.Model):
         default=""
     )
 
+    slug = AutoSlugField(
+        populate_from='titulo',
+    )
+    
+    imagen = models.ImageField(upload_to="static/img/main")
+
     descripcion = models.TextField(
         verbose_name="Descripcion de la noticia",
         default=""
     )
-
-    imagen = models.ImageField(upload_to="static/img/main")
+    
+    contenido = RichTextField(
+        verbose_name="Contenido de la Noticia"
+    )
 
     autor   = models.ForeignKey(
         User, 

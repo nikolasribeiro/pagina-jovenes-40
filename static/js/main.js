@@ -30,6 +30,7 @@ function main(){
         document.querySelector('#principal').scrollIntoView({behavior:'smooth'});
     });
 
+    
 
     /* Script que actualiza el año en el footer */
     const actualYear = document.querySelector("#actualYear");

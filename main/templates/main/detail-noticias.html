@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static 'css/detail-blog.css' %}">
+{% endblock custom_styles %}
+
+{% block content %}
+
+
+  	<div class="contenedor-detalle-blog">
+		{% for noticia in noticias_especificas %}
+			<div class="detalle-blog-header">
+				<img src="{{ noticia.imagen }}">
+				<div class="titulo-subtitulo">
+				<h1>{{ noticia.titulo }}</h1>
+				</div>
+				<div class="autor-fecha">
+				<p class="autor">Escrito por {{ noticia.autor|capfirst }}</p>
+				<p class="fecha">Publicado el {{ noticia.fecha }}</p>
+				</div>
+			</div>
+		
+			<div class="contenido-detalle">
+				<div class="detalle-blog-body">
+				{{ noticia.contenido|safe }}
+				</div>
+		
+				<div class="compartir-redes-sociales">
+				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://{{ request.get_host }}{{ request.get_full_path }}"><i class=" fab fa-facebook"></i>Compartir en Facebook</a>
+				<a target="_blank" href="https://api.whatsapp.com/send?text=Mira%20este%20post%20en%20Jovenes40!%20https://{{ request.get_host }}{{ request.get_full_path }}"><i class="fab fa-whatsapp"></i>Compartir en WhatsApp</a>
+				<a target="_blank" href="https://twitter.com/intent/tweet?text=&url={{ request.get_host }}{{ request.get_full_path }}"><i class="fab fa-twitter"></i>Compartir en Twitter</a>
+				</div>
+			</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
