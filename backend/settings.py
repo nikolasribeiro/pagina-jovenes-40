@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("JOVENES40_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://jovenes40.herokuapp.com/']
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # =========== Third Party Apps ===========
     'ckeditor',
     'import_export',
+    'whitenoise',
 
     # =========== Custom Apps ===========
     #=== Index ===#
