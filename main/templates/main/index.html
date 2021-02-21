@@ -30,7 +30,7 @@
                                 {% for noticia in noticias %}
                                     <!-- Slider items -->
                                     <li class="splide__slide blog-content">
-                                        <img src="{{noticia.imagen.url}}">
+                                        <img src="{{noticia.imagen.url}}" class="imagen-slider">
                                         <div class="titulo-blog">
                                             <h3>{{noticia.titulo}}</h3>
                                             <a class="btn btn-blog" href="{% url 'detalle-noticia' noticia.slug %}">Leer Mas</a>
