@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("JOVENES40_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://jovenes40.herokuapp.com/']
+ALLOWED_HOSTS = ['jovenes40.herokuapp.com','http://www.jovenes40.com','jovenes40.com']
 
 
 # Application definition
