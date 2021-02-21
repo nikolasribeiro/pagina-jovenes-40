@@ -1,5 +1,7 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from .models import *
+import random
 
 # Create your views here.
 def home(request):
@@ -23,14 +25,22 @@ def home(request):
 
     # Obtenemos las noticias
     noticias = Noticias.objects.all().order_by('-fecha')
+    
+    #Paginacion
+    paginator = Paginator(noticias, 3)
 
+    # Obtenemos el numero de paginas
+    page_number = request.GET.get('page')
+
+    page_obj = paginator.get_page(page_number)
 
     # Contexto
     context = {
         "fechas":fechas,
         "verificador":verificador,
         "mes":mes_model,
-        "noticias":noticias
+        "noticias":noticias,
+        "page_obj":page_obj
     }
 
     return render(request, 'main/index.html', context)

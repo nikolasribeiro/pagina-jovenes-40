@@ -18,7 +18,7 @@
                         <img src="{{ blog.imagen_blog }}" class="background-imagen">
                     </div>
                     <div class="detalles-publicacion">
-                        <a href="#" class="autor"><i class="fas fa-user"></i>{{ blog.autor|capfirst }}</a>
+                        <a href="#" class="autor"><i class="fas fa-user"></i>{{ blog.autor.first_name|capfirst }} {{ blog.autor.last_name|capfirst }}</a>
                         <span class="date"><i class="fas fa-calendar-alt"></i>{{ blog.fecha_publicacion }}</span>
                     </div>
                 </div>

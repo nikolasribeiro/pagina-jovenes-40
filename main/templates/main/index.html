@@ -23,65 +23,21 @@
         <section>
             <div class="blog">
                 <div class="container">
-
                     <div class="splide">
                         <div class="splide__track blog-post">
-
                             <ul class="splide__list">
-                                <!-- Slider items -->
-                                <li class="splide__slide blog-content">
-                                    <img src="{% static 'assets/Blog-post/blog1.png' %}" alt="" srcset="">
-                                    <div class="titulo-blog">
-                                        <h3>Titulo del blog</h3>
-                                        <button class="btn btn-blog">Leer Mas</button>
-                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
-                                    </div>
-                                </li>
-                                
-                                <li class="splide__slide blog-content">
-                                    <img src="{% static 'assets/Blog-post/blog2.png' %}" alt="" srcset="">
-                                    <div class="titulo-blog">
-                                        <h3>Titulo del blog</h3>
-                                        <button class="btn btn-blog">Leer Mas</button>
-                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
-                                    </div>
-                                </li>
-                                
-                                <li class="splide__slide blog-content">
-                                    <img src="{% static 'assets/Blog-post/blog3.png' %}" alt="" srcset="">
-                                    <div class="titulo-blog">
-                                        <h3>Titulo del blog</h3>
-                                        <button class="btn btn-blog">Leer Mas</button>
-                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
-                                    </div>
-                                </li>
 
-                                <li class="splide__slide blog-content">
-                                    <img src="{% static 'assets/Blog-post/blog4.png' %}" alt="" srcset="">
-                                    <div class="titulo-blog">
-                                        <h3>Titulo del blog</h3>
-                                        <button class="btn btn-blog">Leer Mas</button>
-                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
-                                    </div>
-                                </li>
-
-                                <li class="splide__slide blog-content">
-                                    <img src="{% static 'assets/Blog-post/blog1.png' %}" alt="" srcset="">
-                                    <div class="titulo-blog">
-                                        <h3>Titulo del blog</h3>
-                                        <button class="btn btn-blog">Leer Mas</button>
-                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
-                                    </div>
-                                </li>
-
-                                <li class="splide__slide blog-content">
-                                    <img src="{% static 'assets/Blog-post/blog2.png' %}" alt="" srcset="">
-                                    <div class="titulo-blog">
-                                        <h3>Titulo del blog</h3>
-                                        <button class="btn btn-blog">Leer Mas</button>
-                                        <span>7 de Febrero de 2021 a las 16:18 by Nicolas</span>
-                                    </div>
-                                </li>
+                                {% for noticia in noticias %}
+                                    <!-- Slider items -->
+                                    <li class="splide__slide blog-content">
+                                        <img src="{{noticia.imagen.url}}">
+                                        <div class="titulo-blog">
+                                            <h3>{{noticia.titulo}}</h3>
+                                            <a class="btn btn-blog" href="{% url 'detalle-noticia' noticia.slug %}">Leer Mas</a>
+                                            <span>{{noticia.fecha}}</span>
+                                        </div>
+                                    </li>
+                                {% endfor %}
 
 
                             </ul>
@@ -99,7 +55,7 @@
             <div class="contenido-sitio">
                 <div class="posts">
 
-                    {% for noticia in noticias %}
+                    {% for noticia in page_obj %}
                         <div class="post-contenido">
                             <div class="post-imagen">
                                 <div>
@@ -120,6 +76,17 @@
                     {% endfor %}
 
                     <div class="pagination flex-row">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1"><i class="fas fa-chevron-left">Primera</i></a>
+                            <a href="?page={{ page_obj.previous_page_number }}" class="page">Anterior</a>
+                        {% endif %}
+
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" class="page">Siguiente</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fas fa-chevron-right"></i></a>
+                        {% endif %}
+                        
+                        <!--
                         <a href="#"><i class="fas fa-chevron-left"></i></a>
                         
                         <a href="#" class="page">1</a>
@@ -127,6 +94,7 @@
                         <a href="#" class="page">3</a>
 
                         <a href="#"><i class="fas fa-chevron-right"></i></a>
+                        -->
                     </div>
                 </div>
 

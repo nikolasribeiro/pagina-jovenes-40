@@ -53,7 +53,7 @@ main .blog .blog-content{
     width: 80%;
     margin: 5rem 1rem;
     box-shadow: 0 15px 20px lightgray;
-    padding: 1rem;
+    padding: 10rem;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 40px 0px 40px 0px;
 }
@@ -64,7 +64,7 @@ main .blog .titulo-blog{
 
 main .blog-content .btn-blog{
     padding: .4rem 3rem;
-    background-image: var(--gradiente-amarillo);
+    /*background-image: var(--gradiente-amarillo);*/
     color: var(--secundario);
     margin: .5rem;
     border-radius: 20px 0px 20px 0px;

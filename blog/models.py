@@ -10,13 +10,13 @@ class Blog(models.Model):
     titulo_blog = models.CharField(
         verbose_name="Titulo del blog", 
         default="",
-        max_length=200
+        max_length=30
     )
 
     subtitulo_blog = models.CharField(
         verbose_name="Subtitulo del blog (Este campo puede estar vacio)",
         default="",
-        max_length=300,
+        max_length=50,
     )
 
     imagen_blog = models.URLField(
@@ -51,5 +51,3 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.titulo_blog
-    
-

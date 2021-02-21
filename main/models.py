@@ -15,7 +15,10 @@ class Noticias(models.Model):
         populate_from='titulo',
     )
     
-    imagen = models.ImageField(upload_to="static/img/main")
+    imagen = models.ImageField(
+        upload_to="static/img/main", 
+        verbose_name="Imagen (1600x900px)"
+    )
 
     descripcion = models.TextField(
         verbose_name="Descripcion de la noticia",
