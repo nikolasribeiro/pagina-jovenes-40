@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog
+from .models import Blog, Categoria
 
 
 
@@ -28,6 +28,19 @@ class BlogAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = BlogResource
 
 
+class CategoriaResource(resources.ModelResource):
+    class Meta:
+        model = Blog
+
+class CategoriaAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = (
+        'nombre_categoria',
+    )
+
+    resource_class = CategoriaResource
+
+
 
 # Register your models here.
 admin.site.register(Blog, BlogAdmin)
+admin.site.register(Categoria, CategoriaAdmin)

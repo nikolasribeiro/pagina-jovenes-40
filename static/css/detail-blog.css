@@ -24,29 +24,26 @@
 }
 
 .detalle-blog-header{
-    display: flex;
-    position: relative;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     justify-content: center;
+    position: relative;
     width: 100%;
     height: 400px;
     overflow: hidden;
     margin-bottom: 10px;
-}
-
-.detalle-blog-header img{
-    width: 100%;
-    position: absolute;
 
 }
 
 .detalle-blog-header .titulo-subtitulo{
+    display: grid;
+    left: 25vw;
     z-index: 100;
-    position: absolute;
-    left: 25%;
-    top: 30%;
-    width: 100%;
-    height: 100%;
+    grid-template-columns: 10% 80% 10%;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 120px;
+    padding: 100px;
 }
 
 .detalle-blog-header .titulo-subtitulo h1{
@@ -56,19 +53,15 @@
 
 .detalle-blog-header .titulo-subtitulo h3{
     color: white;
-    position: absolute;
-    z-index: 100;
-    left: 15%;
     font-size: 40px;
+    text-align: center;
 }
 
 
 .detalle-blog-header .autor-fecha{
-    z-index: 100;
     display: flex;
-    position: absolute;
-    top: 90%;
-    left: 30%;
+    justify-content: center;
+    z-index: 100;
 }
 
 .detalle-blog-header .autor-fecha .autor{
@@ -87,10 +80,32 @@
 }
 
 .contenido-detalle .detalle-blog-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.contenido-detalle .detalle-blog-body .autor-descripcion{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    border: 4px solid var(--secundario);
+    border-radius: 40px 0px;
+    max-height: 500px;
+    box-shadow: 2px 2px 5px grey;
+}
+
+.contenido-detalle .detalle-blog-body .autor-historia{
+    padding: 10px;
+    text-align: justify;
     font-size: 20px;
+    font-family: var(--Roboto);
+}
+
+.contenido-detalle .detalle-blog-body img{
+    width: 150px;
+    border-radius: 100%;
 }
 
 .contenido-detalle .compartir-redes-sociales{
@@ -122,11 +137,56 @@
     color: var(--secundario);
 }
 
+
+.etiquetas{
+    max-width: 600px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    background-color: var(--secundario);
+    padding: 10px;
+    box-shadow: 1px 1px 10px grey;
+    border-radius: 20px 0px;
+}
+
+.etiquetas .tags{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: var(--Roboto);
+    text-align: center;
+}
+
+.etiquetas ul{
+    display: flex;
+    text-align: center;
+}
+
+.etiquetas ul li a{
+    font-size: 20px;
+    margin-right: 40px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.etiquetas ul li a:hover{
+    color: var(--principal);
+}
+
+
 /* Media Querys */
 
 @media screen and (max-width: 1024px){
     .detalle-blog-header .titulo-subtitulo{
-        left: 16%;
+        padding: 40px;
+    }
+
+    .contenido-detalle .detalle-blog-body{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .contenedor-detalle .detalle-blog-body .autor-descripcion{
+        justify-content: center;
     }
 
     .detalle-blog-header .titulo-subtitulo h1{
@@ -145,12 +205,17 @@
 
 /* vista tablet */
 @media screen and (max-width: 768px){
-    .detalle-blog-header .titulo-subtitulo{
-        left: 14%;
-    }
-
     .detalle-blog-header .titulo-subtitulo h1{
         font-size: 3rem;
+    }
+
+    .contenido-detalle .detalle-blog-body{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .contenedor-detalle .detalle-blog-body .autor-descripcion{
+        justify-content: center;
     }
 
     .detalle-blog-header .autor-fecha{
@@ -172,28 +237,36 @@
 }
 
 
+
+
+
+
+
 /* vista Celular grande */
 @media screen and (max-width: 425px){
-    .detalle-blog-header .titulo-subtitulo{
-        left: 10%;
-    }
 
     .detalle-blog-header .titulo-subtitulo h1{
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .detalle-blog-header .titulo-subtitulo h3{
         font-size: 1.4rem;
-    }
-
-    .detalle-blog-header .autor-fecha{
-        left: 10%;
+        text-align: center;
     }
 
     .detalle-blog-header .autor-fecha .autor{
         margin-right: 12px;
     }
     
+    .contenido-detalle .detalle-blog-body{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .contenedor-detalle .detalle-blog-body .autor-descripcion{
+        justify-content: center;
+    }
+
     .contenido-detalle .compartir-redes-sociales a{
         padding: 20px;
         font-size: 20px;
@@ -208,16 +281,18 @@
 
 /* vista Celular mediano */
 @media screen and (max-width: 375px){
+
     .detalle-blog-header .titulo-subtitulo{
-        left: 10%;
+        padding: 1px;
     }
 
     .detalle-blog-header .titulo-subtitulo h1{
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
 
     .detalle-blog-header .titulo-subtitulo h3{
         font-size: 1.3rem;
+        text-align: center;
     }
 
 }

@@ -44,6 +44,7 @@ class Noticias(models.Model):
     def __str__(self):
         return self.titulo
 
+
 class FechasImportantes(models.Model):
     nombre = models.CharField(
         verbose_name="Nombre del mes", 

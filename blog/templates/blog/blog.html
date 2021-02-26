@@ -5,34 +5,63 @@
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 {% endblock custom_styles %}
 
+
+  
+
 {% block content %}
-
 	<!-- BLOG -->
-	<div class="contenedor-blog">
+	<div class="contenido-blog-general">
 
-        {% for blog in blogs %}
-            <div class="posteo">
-                <!-- inicio blogs -->
-                <div class="imagen-posteo">
-                    <div class="contenedor-background-imagen">
-                        <img src="{{ blog.imagen_blog }}" class="background-imagen">
-                    </div>
-                    <div class="detalles-publicacion">
-                        <a href="#" class="autor"><i class="fas fa-user"></i>{{ blog.autor.first_name|capfirst }} {{ blog.autor.last_name|capfirst }}</a>
-                        <span class="date"><i class="fas fa-calendar-alt"></i>{{ blog.fecha_publicacion }}</span>
-                    </div>
-                </div>
-                <div class="post-data">
-                    <h1 class="titulo">{{ blog.titulo_blog }}</h1>
-                    <h2 class="subtitulo">{{ blog.subtitulo_blog }}</h2>
-                    <p class="descripcion">
-                        {{ blog.descripcion_breve }}
-                    </p>
-                    <div class="cta"><a href="{% url 'detail' blog.slug %}">Leer Mas &rarr;</a></div>
-                </div>
-                
-            </div>
-        {% endfor %}
+		<div class="contenedor-blog">
+
+            {% for blog in blogs %}
+
+			<div class="posteo">
+				<!-- inicio blogs -->
+				<div class="imagen-posteo">
+					<div class="contenedor-background-imagen">
+						<img src="{{blog.imagen_blog}}" class="background-imagen">
+					</div>
+					<div class="detalles-publicacion">
+						<a href="#" class="autor"><i class="fas fa-user"></i>{{blog.autor.first_name|capfirst}}&nbsp;{{blog.autor.last_name|capfirst}}</a>
+						<span class="date"><i class="fas fa-calendar-alt"></i>{{blog.fecha_publicacion}}</span>
+					</div>
+				</div>
+				<div class="post-data">
+					<h1 class="titulo">{{blog.titulo_blog}}</h1>
+					<h2 class="subtitulo">{{blog.subtitulo_blog}}</h2>
+					<p class="descripcion">
+						{{blog.descripcion_breve}}
+					</p>
+					<div class="cta"><a href="{% url 'detail' blog.slug %}">Leer Mas &rarr;</a></div>
+				</div>
+				
+			</div>
+            {% endfor %}
+		</div>
+
+		<div class="blog-sidebar">
+			<div class="buscador">
+				<h3>Buscador</h3>
+				<form method="post">
+					{% csrf_token %}
+					<div class="input-fields">
+						<input name="buscador-input" type="text" placeholder="Ingrese el titulo del blog completo" required>
+					</div>
+					<input type="submit" value="Buscar" class="buscar">
+				</form>
+			</div>
+			
+			<div class="categorias-listado">
+				<h4>Categorias</h4>
+				<ul>
+					<li><a href="{% url 'blog' %}">Todo</a></li>
+					{% for categoria in categorias %}
+						<li><a href="?categoria={{categoria.id}}">{{categoria|capfirst}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
 
 	</div>
 	<!-- BLOG -->

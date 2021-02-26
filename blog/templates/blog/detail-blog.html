@@ -3,37 +3,80 @@
 
 {% block custom_styles %}
 <link rel="stylesheet" href="{% static 'css/detail-blog.css' %}">
+
+
 {% endblock custom_styles %}
 
 {% block content %}
 
+<div class="contenedor-detalle-blog">
+	{% for blog in blogs %}
+	<style>
+		.detalle-blog-header{
+			background-image: linear-gradient(to right, rgba(0, 61, 165, 0.3),rgba(0, 61, 165, 0.3)),url('{{ blog.imagen_blog }}');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position-x: center;
+			background-position-y: center;
+		}
+	</style>
+	<div class="detalle-blog-header">
+		<div class="titulo-subtitulo">
+			<div></div>
+			<div>
+				<h1>{{blog.titulo_blog}}</h1>
+				<h3>{{blog.subtitulo_blog}}</h3>
+			</div>
+			<div></div>
+		  </div>
 
-  	<div class="contenedor-detalle-blog">
-		{% for blog in blogs %}
-			<div class="detalle-blog-header">
-				<img src="{{ blog.imagen_blog }}">
-				<div class="titulo-subtitulo">
-				<h1>{{ blog.titulo_blog }}</h1>
-				<h3>{{ blog.subtitulo_blog }}</h3>
-				</div>
-				<div class="autor-fecha">
-				<p class="autor">Escrito por {{ blog.autor|capfirst }}</p>
+		  <div class="autor-fecha">
+				<p class="autor">Escrito por {{blog.autor.first_name|capfirst}}&nbsp;{{blog.autor.last_name|capfirst}}</p>
 				<p class="fecha">Publicado el {{ blog.fecha_publicacion }}</p>
-				</div>
-			</div>
-		
-			<div class="contenido-detalle">
-				<div class="detalle-blog-body">
-				{{ blog.contenido_blog|safe }}
-				</div>
-		
-				<div class="compartir-redes-sociales">
-				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://{{ request.get_host }}{{ request.get_full_path }}"><i class=" fab fa-facebook"></i>Compartir en Facebook</a>
-				<a target="_blank" href="https://api.whatsapp.com/send?text=Mira%20este%20post%20en%20Jovenes40!%20https://{{ request.get_host }}{{ request.get_full_path }}"><i class="fab fa-whatsapp"></i>Compartir en WhatsApp</a>
-				<a target="_blank" href="https://twitter.com/intent/tweet?text=&url={{ request.get_host }}{{ request.get_full_path }}"><i class="fab fa-twitter"></i>Compartir en Twitter</a>
-				</div>
-			</div>
-			</div>
-		{% endfor %}
+		  </div>
 	</div>
+
+	<div class="contenido-detalle">
+	  <div class="detalle-blog-body">
+		<div class="contenido-blog">
+			<div class="contenido">
+				{{ blog.contenido_blog|safe }}
+			</div>
+			<div class="etiquetas">
+				<div class="tags">etiquetas</div>
+				<ul>
+					<li><a href="#">{{ blog.categoria }}</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="autor-descripcion">
+			<img src="img/captura_perfil.png">
+			<div class="contenedor-redes">
+				<span><a href="#">Facebook</a></span>
+				<span><a href="#">Twitter</a></span>
+				<span><a href="#">Instagram</a></span>
+			</div>
+			<div class="autor-historia">
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui est amet in et saepe possimus provident enim numquam libero vitae a, sint ipsa ab beatae excepturi deserunt id laudantium veniam!
+			</div>
+		</div>
+
+
+	  </div>
+
+		<div class="compartir-redes-sociales">
+			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://{{ request.get_host }}{{ request.get_full_path }}"><i class=" fab fa-facebook"></i>Compartir en Facebook</a>
+			<a target="_blank" href="https://api.whatsapp.com/send?text=Mira%20este%20post%20en%20Jovenes40!%20https://{{ request.get_host }}{{ request.get_full_path }}"><i class="fab fa-whatsapp"></i>Compartir en WhatsApp</a>
+			<a target="_blank" href="https://twitter.com/intent/tweet?text=&url={{ request.get_host }}{{ request.get_full_path }}"><i class="fab fa-twitter"></i>Compartir en Twitter</a>
+		</div>
+	</div>
+	{% endfor %}
+	</div>
+		
+
+</div>
 {% endblock content %}
+
+
+  

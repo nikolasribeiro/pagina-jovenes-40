@@ -3,17 +3,22 @@
 
 /* ///==> Titulo del sitio <== \\\ */
 main .titulo-sitio{
-    background: url('../img/hero_alfa.png');
+    background: url('../img/banner_principal_main.jpg');
     background-size: cover;
     height: 110vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 main .titulo-sitio .hero-background{
     padding: 10rem;
     text-align: center;
     color: white;
+}
+
+main .titulo-sitio .olas{
+    margin-top: 70px;
 }
 
 main .titulo-sitio h1, h3{
