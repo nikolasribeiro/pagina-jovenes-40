@@ -186,6 +186,7 @@ p{
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: white;
     width: 30%;
+    margin-left: 50px;
 }
 
 .nav .nav-brand a img{
