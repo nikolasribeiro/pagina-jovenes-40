@@ -18,10 +18,11 @@ def blog(request):
 
     # Barra de busqueda
     if busqueda_usuario is not None:
-
+        busqueda_usuario = busqueda_usuario.strip()
+        
         # Checkea si la palabra clave es una categoria
         for elemento in lista_categorias:
-            if busqueda_usuario == elemento[1]:
+            if busqueda_usuario.lower() == elemento[1].lower():
                 blogs = Blog.objects.filter(categoria=elemento[0]).order_by('-fecha_publicacion')
             else:
                 print("No existe categoria")
