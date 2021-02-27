@@ -22,7 +22,7 @@
 
 .contenido-blog-general{
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 1fr;
 }
 
 .blog-sidebar{
@@ -255,6 +255,11 @@
 
 /* tablet */
 @media screen and (min-width: 800px){
+
+    .contenido-blog-general{
+        grid-template-columns: 70% 30%;
+    }
+
     .posteo{
         flex-direction: row;
         max-height: 75rem;
@@ -297,6 +302,7 @@
         flex-basis: 60%;
     }
 }
+
 
 /* celular pantalla grande */
 @media screen and (min-width: 425px){

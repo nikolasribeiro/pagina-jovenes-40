@@ -21,6 +21,13 @@ main .titulo-sitio .olas{
     margin-top: 70px;
 }
 
+@-moz-document url-prefix() {
+    
+    main .titulo-sitio .olas{
+        margin-top: 105px;
+    }
+}
+
 main .titulo-sitio h1, h3{
     margin: .3rem;
 }
